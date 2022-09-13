@@ -28,5 +28,8 @@ db.once('open', (error) => console.log('Conected to mongoose'));
 app.use('/', indexRouter);
 app.use('/authors', authorsRouter);
 app.use('/books', booksRouter);
+app.use((req, res) => {
+  res.status(404).render('404');
+});
 
 app.listen(process.env.PORT || 3000);
